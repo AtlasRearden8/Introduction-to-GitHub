@@ -1,0 +1,9 @@
+
+# Built website + generated downloads (made by CI)
+site/
+MANUAL.md
+MANUAL*.pdf
+__pycache__/
+*.pyc
+.venv/
+.cache/
