@@ -54,7 +54,9 @@ body { font-feature-settings: "ss01"; }
 }
 .md-typeset pre > code { border-radius: var(--itg-radius); }
 .md-typeset code { border-radius: 0.3rem; }
-.md-typeset .md-button { border-radius: 999px; font-weight: 700; }
+.md-typeset .md-button { border-radius: 999px; font-weight: 700; color: var(--md-accent-fg-color); border-color: var(--md-accent-fg-color); }
+[data-md-color-scheme="slate"] .md-typeset .md-button { color: #e9d5ff; border-color: #8b5cf6; }
+.md-typeset .md-button:hover, .md-typeset .md-button:focus { color: #ffffff; background: rgba(168, 85, 247, 0.28); border-color: #c4b5fd; }
 .md-typeset .md-button--primary { background: linear-gradient(135deg, #6d28d9, #a855f7); border: 0; color: #fff; }
 .md-typeset .md-button:hover { box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.35); }
 .md-typeset details { border-radius: var(--itg-radius); }
@@ -87,3 +89,8 @@ body { font-feature-settings: "ss01"; }
   background: var(--md-default-bg-color--light);
 }
 .cards > div:hover { border-color: var(--md-accent-fg-color); }
+
+/* keep the filled buttons readable in both color schemes */
+[data-md-color-scheme] .md-typeset .md-button--primary { color: #ffffff; background: linear-gradient(135deg, #6d28d9, #a855f7); border: 0; }
+[data-md-color-scheme] .hero .md-button { background: #ffffff; color: #3b0764; border: 0; }
+[data-md-color-scheme] .hero .md-button:hover { background: #f3e8ff; color: #3b0764; }
