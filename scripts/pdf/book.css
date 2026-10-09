@@ -1,37 +1,234 @@
 @page { margin: 0; }
-:root { --teal: #0f766e; --blue: #2563eb; --violet: #7c3aed; --ink: #1f2937; --soft: #f3f4f6; }
+@page chapter { margin: 0.75in 0.95in 0.9in; background: PAPER; }
+@page front { margin: 0.9in 0.95in 0.9in; background: PAPER; }
+
+/* ---- print edition (white pages) is the base; html.dark switches to black and purple ---- */
+:root {
+  --paper: #ffffff;
+  --ink: #261f3a;
+  --head: #1a0f35;
+  --muted: #7a7194;
+  --rule: #ebe5f7;
+  --panel: #f4f0fc;
+  --purple: #7c3aed;
+  --purple-soft: #a78bfa;
+  --magenta: #d946ef;
+  --note-bg: #f3edff;
+  --note-line: #d9c8ff;
+  --warn-bg: #fff3df;
+  --warn-line: #f6d49a;
+  --warn-ink: #b45309;
+  --ok-bg: #e5f8ee;
+  --ok-ink: #047857;
+  --td-first: #f7f3ff;
+  --td-first-alt: #efe8ff;
+  --td-alt: #fbf9ff;
+  --td-bg: #ffffff;
+  --code-bg: #1a1233;
+  --code-ink: #efe9ff;
+  --inline-code-bg: #f1ebff;
+  --inline-code-ink: #5b21b6;
+  --shot-bg: #faf7ff;
+  --shot-line: #cbb8f5;
+  --sans: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+  --serif: "Fraunces", Georgia, serif;
+  --mono: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+  --emoji: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+html.dark {
+  --paper: #0b0712;
+  --ink: #d9d2ea;
+  --head: #ffffff;
+  --muted: #8f84ad;
+  --rule: #2a2142;
+  --panel: #171027;
+  --purple: #a78bfa;
+  --purple-soft: #c4b5fd;
+  --magenta: #e879f9;
+  --note-bg: #16102a;
+  --note-line: #3b2c66;
+  --warn-bg: #241a0c;
+  --warn-line: #5c4318;
+  --warn-ink: #fbbf24;
+  --ok-bg: #0c2219;
+  --ok-ink: #34d399;
+  --td-first: #150f26;
+  --td-first-alt: #1a1230;
+  --td-alt: #0f0a1b;
+  --td-bg: #0d0818;
+  --code-bg: #150e26;
+  --code-ink: #efe9ff;
+  --inline-code-bg: #1d1433;
+  --inline-code-ink: #d8c7ff;
+  --shot-bg: #0f0a1b;
+  --shot-line: #4a3a7a;
+}
 * { box-sizing: border-box; }
-body { font: 10.5pt/1.55 "Inter", "Noto Sans", "DejaVu Sans", system-ui, sans-serif; color: var(--ink); margin: 0;
-       font-family: "Inter", "Noto Sans", "Noto Color Emoji", "DejaVu Sans", sans-serif; }
-.pagebox { padding: 0; }
-/* cover */
-.cover { height: 100vh; page-break-after: always; display: flex; flex-direction: column; justify-content: center; align-items: center;
-         text-align: center; color: #fff; background: linear-gradient(135deg, #0f766e 0%, #2563eb 55%, #7c3aed 100%); }
-.cover .icon { font-size: 72pt; }
-.cover h1 { font-size: 40pt; line-height: 1.1; margin: 12pt 0; letter-spacing: -0.02em; }
-.cover p { font-size: 15pt; max-width: 70%; opacity: 0.95; }
-.cover small { margin-top: 40pt; font-size: 10pt; opacity: 0.85; }
-/* contents */
-.contents { page-break-after: always; padding: 0.9in 0.9in 0.7in; }
-.contents h1 { color: var(--teal); font-size: 24pt; margin-top: 0; }
-.contents ol { list-style: none; padding: 0; }
-.contents li { padding: 7pt 0; border-bottom: 1px solid #e5e7eb; font-size: 11.5pt; }
-.contents a { color: var(--ink); text-decoration: none; }
-/* chapters */
-section.chapter { page-break-before: always; padding: 0.7in 0.9in 0.8in; }
-section.chapter > h1:first-child { color: #fff; background: linear-gradient(120deg, var(--teal), var(--blue) 60%, var(--violet));
-  padding: 18pt 20pt; border-radius: 12pt; font-size: 22pt; line-height: 1.2; margin: 0 0 18pt; }
-h2 { color: var(--teal); font-size: 15pt; margin-top: 20pt; border-bottom: 2px solid #ccfbf1; padding-bottom: 3pt; page-break-after: avoid; }
-h3 { color: var(--blue); font-size: 12.5pt; page-break-after: avoid; }
-h4 { page-break-after: avoid; }
-a { color: var(--blue); }
-code { font-family: "JetBrains Mono", "DejaVu Sans Mono", monospace; font-size: 9pt; background: var(--soft); padding: 1pt 3pt; border-radius: 3pt; }
-pre { background: #0f172a; color: #e2e8f0; padding: 9pt 11pt; border-radius: 8pt; overflow-wrap: anywhere; white-space: pre-wrap; page-break-inside: avoid; }
-pre code { background: none; color: inherit; padding: 0; font-size: 8.8pt; }
-blockquote { margin: 10pt 0; padding: 4pt 12pt; border-left: 4pt solid var(--violet); background: #f5f3ff; border-radius: 0 8pt 8pt 0; page-break-inside: avoid; }
-table { border-collapse: collapse; width: 100%; margin: 10pt 0; font-size: 9.5pt; page-break-inside: avoid; }
-th { background: var(--teal); color: #fff; text-align: left; }
-th, td { border: 1px solid #d1d5db; padding: 4pt 7pt; vertical-align: top; }
-tr:nth-child(even) td { background: #f9fafb; }
-hr { border: 0; border-top: 1px solid #e5e7eb; margin: 16pt 0; }
-ul.task-list { list-style: none; padding-left: 4pt; }
+html { background: var(--paper); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: var(--sans), var(--emoji); font-size: 10pt; line-height: 1.68; color: var(--ink); margin: 0; font-weight: 500; }
+
+/* ---------- cover ---------- */
+.cover {
+  page: cover; height: 100vh; page-break-after: always; position: relative; overflow: hidden;
+  padding: 2.4in 1in 1in; color: #fff;
+  background:
+    radial-gradient(90% 55% at 90% 0%, rgba(139, 92, 246, 0.55) 0%, rgba(139, 92, 246, 0) 70%),
+    radial-gradient(80% 50% at 0% 100%, rgba(109, 40, 217, 0.45) 0%, rgba(109, 40, 217, 0) 70%),
+    #07040d;
+}
+.cover::before { content: ""; position: absolute; left: 1in; top: 1.1in; width: 0.9in; height: 4pt; border-radius: 2pt; background: linear-gradient(90deg, #a855f7, #e879f9); }
+.cover .orb { display: none; }
+.cover .emojis { position: relative; font-size: 28pt; letter-spacing: 9pt; margin-bottom: 22pt; }
+.cover .kicker { position: relative; font-size: 9.5pt; letter-spacing: 0.26em; text-transform: uppercase; color: #d8b4fe; font-weight: 800; margin-bottom: 14pt; }
+.cover h1 { position: relative; font-family: var(--serif); font-size: 60pt; line-height: 0.98; margin: 0 0 24pt; letter-spacing: -0.02em; font-weight: 800; max-width: 5.4in; color: #fff; }
+.cover p { position: relative; font-size: 14pt; line-height: 1.55; color: #cfc4ea; max-width: 4.7in; margin: 0; }
+.cover small { position: absolute; left: 1in; bottom: 0.9in; font-size: 9.5pt; color: #8f7fc0; }
+
+/* ---------- part dividers ---------- */
+.part {
+  page: cover; height: 100vh; page-break-before: always; page-break-after: always; position: relative; overflow: hidden;
+  padding: 3.2in 1in 1in; color: #fff;
+  background:
+    radial-gradient(90% 50% at 100% 100%, rgba(139, 92, 246, 0.5) 0%, rgba(139, 92, 246, 0) 70%),
+    radial-gradient(70% 40% at 0% 0%, rgba(76, 29, 149, 0.45) 0%, rgba(76, 29, 149, 0) 70%),
+    #07040d;
+}
+.part::before { content: ""; position: absolute; left: 1in; top: 1.1in; width: 0.9in; height: 4pt; border-radius: 2pt; background: linear-gradient(90deg, #a855f7, #e879f9); }
+.part .pn { position: relative; font-family: var(--serif); font-size: 120pt; font-weight: 800; line-height: 1; color: #a78bfa; opacity: 0.9; }
+.part .eyebrow { position: relative; color: #d8b4fe; margin-top: 6pt; }
+.part h1 { position: relative; font-family: var(--serif); font-size: 38pt; line-height: 1.05; margin: 8pt 0 14pt; font-weight: 800; color: #fff; max-width: 5in; letter-spacing: -0.02em; }
+.part p { position: relative; font-size: 12.5pt; line-height: 1.55; color: #cfc4ea; max-width: 4.6in; margin: 0; }
+
+/* ---------- contents ---------- */
+.contents { page: front; page-break-after: always; }
+.eyebrow { font-size: 8.5pt; letter-spacing: 0.24em; text-transform: uppercase; color: var(--magenta); font-weight: 800; }
+.contents h1 { font-family: var(--serif); font-size: 36pt; margin: 4pt 0 18pt; letter-spacing: -0.02em; font-weight: 800; color: var(--head); }
+.contents h2.toc-part { font-family: var(--sans); font-size: 8.5pt; letter-spacing: 0.22em; text-transform: uppercase; color: var(--purple); font-weight: 800; margin: 16pt 0 4pt; border: 0; padding: 0; }
+.contents ol { list-style: none; padding: 0; margin: 0; }
+.contents li { margin: 0; border-bottom: 1px solid var(--rule); }
+.contents a { display: flex; align-items: baseline; gap: 14pt; padding: 4.8pt 0; color: var(--ink); text-decoration: none; font-size: 10.5pt; font-weight: 700; }
+.contents .n { font-family: var(--serif); color: var(--purple); width: 22pt; font-weight: 800; font-size: 11.5pt; }
+
+/* ---------- chapter opener ---------- */
+section.chapter { page: chapter; page-break-before: always; }
+.opener {
+  background: radial-gradient(120% 140% at 100% 0%, #6d28d9 0%, #2e1065 45%, #0a0612 100%); color: #fff; border-radius: 16pt;
+  padding: 28pt 30pt 26pt; margin: 0 0 26pt; position: relative; overflow: hidden; border: 1px solid #3b2c66;
+}
+.opener .icon { position: absolute; right: 24pt; top: 18pt; font-size: 34pt; z-index: 2; line-height: 1; }
+.opener .eyebrow { position: relative; color: #e9d5ff; }
+.opener h1 { position: relative; font-family: var(--serif); font-size: 29pt; line-height: 1.08; letter-spacing: -0.015em; font-weight: 800; color: #fff; margin: 6pt 0 0; max-width: 4.4in; }
+.opener .goals { position: relative; margin: 14pt 0 0; font-size: 10.5pt; line-height: 1.55; color: #e4dbf7; max-width: 5in; font-weight: 500; }
+.opener .goals strong { color: #fff; }
+
+/* ---------- headings and text ---------- */
+h2 { font-family: var(--serif); font-size: 17.5pt; margin: 28pt 0 10pt; letter-spacing: -0.01em; font-weight: 800; color: var(--head); page-break-after: avoid; padding-bottom: 6pt; border-bottom: 2px solid var(--rule); }
+h3 { font-size: 11.5pt; margin: 18pt 0 6pt; font-weight: 800; color: var(--purple); page-break-after: avoid; }
+h4 { page-break-after: avoid; color: var(--head); }
+p { margin: 0 0 9pt; orphans: 3; widows: 3; }
+a { color: var(--purple); text-decoration: none; font-weight: 700; }
+strong { font-weight: 800; color: var(--head); }
+em { color: var(--ink); }
+ul, ol { padding-left: 18pt; margin: 0 0 11pt; }
+li { margin: 3pt 0; }
+ul li::marker { color: var(--magenta); }
+
+section.chapter ol { list-style: none; padding-left: 0; counter-reset: step; }
+section.chapter ol > li { counter-increment: step; position: relative; padding-left: 28pt; margin: 7pt 0; }
+section.chapter ol > li::before {
+  content: counter(step); position: absolute; left: 0; top: 0.5pt; width: 18pt; height: 18pt; border-radius: 5pt;
+  background: linear-gradient(135deg, #7c3aed, #d946ef); color: #fff; font-size: 8.5pt; font-weight: 800; text-align: center; line-height: 18pt;
+}
+section.chapter ol ol > li::before { background: var(--panel); color: var(--purple); border: 1px solid var(--note-line); }
+
+/* section bands: Try it / Stuck? / Checkpoint */
+h2.band { border: 0; background: var(--note-bg); border: 1px solid var(--note-line); border-radius: 12pt; padding: 10pt 16pt; margin-top: 32pt; color: var(--purple); font-size: 15pt; }
+h2.band.stuck { background: var(--warn-bg); border-color: var(--warn-line); color: var(--warn-ink); }
+h2.band.check { background: var(--ok-bg); border-color: transparent; color: var(--ok-ink); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 8.8pt; background: var(--inline-code-bg); padding: 1.2pt 4.5pt; border-radius: 4pt; color: var(--inline-code-ink); font-weight: 400; }
+pre { background: var(--code-bg); color: var(--code-ink); padding: 12pt 14pt; border-radius: 10pt; border: 1px solid var(--note-line); overflow-wrap: anywhere; white-space: pre-wrap; page-break-inside: avoid; margin: 0 0 13pt; }
+pre code { background: none; padding: 0; font-size: 8.4pt; line-height: 1.55; color: var(--code-ink); }
+
+/* ---------- callouts ---------- */
+blockquote { margin: 14pt 0; padding: 11pt 16pt; border-radius: 12pt; page-break-inside: avoid; }
+blockquote.note { background: var(--note-bg); border: 1px solid var(--note-line); border-left: 4pt solid var(--purple); }
+blockquote.warn { background: var(--warn-bg); border: 1px solid var(--warn-line); border-left: 4pt solid #f59e0b; }
+blockquote p:last-child { margin-bottom: 0; }
+p.shot { margin: 14pt 0; padding: 26pt 18pt 22pt; border: 1.5pt dashed var(--shot-line); border-radius: 12pt; color: var(--muted); text-align: center; page-break-inside: avoid; background: var(--shot-bg); }
+p.shot::before { content: "📷"; display: block; font-size: 20pt; margin-bottom: 4pt; font-family: var(--emoji); }
+p.shot strong:first-child { display: block; font-size: 7.5pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 5pt; }
+
+/* ---------- tables ---------- */
+table { border-collapse: separate; border-spacing: 0; width: 100%; margin: 12pt 0 16pt; font-size: 9.2pt; page-break-inside: avoid; border: 1px solid var(--note-line); border-radius: 12pt; overflow: hidden; background: var(--td-bg); }
+th { text-align: left; font-weight: 800; color: #fff; background: linear-gradient(135deg, #4c1d95, #7c3aed 60%, #a855f7); padding: 8pt 12pt; font-size: 9pt; letter-spacing: 0.02em; }
+td { border-top: 1px solid var(--rule); padding: 7pt 12pt; vertical-align: top; }
+td:first-child { font-weight: 700; color: var(--head); background: var(--td-first); }
+tr:nth-child(even) td { background: var(--td-alt); }
+tr:nth-child(even) td:first-child { background: var(--td-first-alt); }
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 22pt 0 14pt; }
+ul.task-list { list-style: none; padding-left: 2pt; }
+ul.task-list li::marker { content: ""; }
+
+/* =====================================================================
+   Print edition: keeps the purple color, but never puts white text on a big colored area.
+   Color shows up as pale tints, colored headings, and colored lines, which use very little toner.
+   ===================================================================== */
+html.print {
+  --head: #2e1065; --ink: #2a2440; --purple: #7c3aed; --magenta: #c026d3;
+  --code-bg: #f6f2ff; --code-ink: #2a1a5c; --inline-code-bg: #f3edff; --inline-code-ink: #5b21b6;
+}
+html.print .cover, html.print .part {
+  background:
+    radial-gradient(90% 45% at 100% 0%, rgba(168, 85, 247, 0.16) 0%, rgba(168, 85, 247, 0) 70%),
+    radial-gradient(80% 40% at 0% 100%, rgba(217, 70, 239, 0.10) 0%, rgba(217, 70, 239, 0) 70%),
+    #ffffff;
+  color: #2a2440;
+}
+html.print .cover::before, html.print .part::before { background: linear-gradient(90deg, #7c3aed, #d946ef); }
+html.print .cover h1, html.print .part h1 { color: #2e1065; }
+html.print .cover p, html.print .part p { color: #4a4268; }
+html.print .cover small { color: #7a7194; }
+html.print .cover .kicker, html.print .part .eyebrow { color: #c026d3; }
+html.print .part .pn { color: #d8c7fb; }
+html.print .opener {
+  background: linear-gradient(135deg, #f1e9ff 0%, #fbeeff 100%);
+  border: 1px solid #d9c8ff; border-left: 6pt solid #7c3aed; color: #2a2440;
+}
+html.print .opener .eyebrow { color: #c026d3; }
+html.print .opener h1 { color: #2e1065; }
+html.print .opener .goals { color: #3b3355; }
+html.print .opener .goals strong { color: #2e1065; }
+html.print h2 { border-bottom: 2px solid #e1d5fb; }
+html.print h2.band { background: #f3edff; border: 1px solid #d9c8ff; color: #5b21b6; }
+html.print h2.band.stuck { background: #fff6e5; border-color: #f2d28f; color: #b45309; }
+html.print h2.band.check { background: #e9f9f1; border-color: #bfe8d2; color: #047857; }
+html.print section.chapter ol > li::before { background: #f3edff; color: #5b21b6; border: 1.2pt solid #7c3aed; }
+html.print section.chapter ol ol > li::before { background: #ffffff; color: #7a7194; border-color: #cbb8f5; }
+html.print pre { background: #f6f2ff; color: #2a1a5c; border: 1px solid #d9c8ff; }
+html.print pre code { color: #2a1a5c; }
+html.print th { background: #ede4ff; color: #3b0764; border-bottom: 2px solid #7c3aed; }
+html.print table { border: 1px solid #d9c8ff; }
+html.print td:first-child { background: #faf7ff; }
+html.print tr:nth-child(even) td { background: #fdfcff; }
+html.print tr:nth-child(even) td:first-child { background: #f6f1ff; }
+html.print blockquote.note { background: #f6f1ff; border-color: #e1d5fb; border-left: 4pt solid #7c3aed; }
+html.print blockquote.warn { background: #fff8ea; border-color: #f2d28f; border-left: 4pt solid #f59e0b; }
+html.print .contents .n { color: #7c3aed; }
+html.print .contents h2.toc-part { color: #c026d3; }
+
+/* ---------- author line, title page and copyright page (print-on-demand interior) ---------- */
+.cover .by { position: relative; margin-top: 28pt; font-size: 12pt; letter-spacing: 0.24em; text-transform: uppercase; color: #e9d5ff; font-weight: 700; }
+html.print .cover .by { color: #5b21b6; }
+.titlepage { page: front; page-break-after: always; text-align: center; padding-top: 1.9in; }
+.titlepage .kicker { font-size: 9pt; letter-spacing: 0.26em; text-transform: uppercase; color: #c026d3; font-weight: 800; margin-bottom: 18pt; }
+.titlepage h1 { font-family: var(--serif); font-size: 46pt; line-height: 1.02; font-weight: 800; color: #2e1065; margin: 0 auto 18pt; letter-spacing: -0.02em; max-width: 5.6in; }
+.titlepage .sub { font-size: 13pt; line-height: 1.5; color: #4a4268; max-width: 4.8in; margin: 0 auto; }
+.titlepage .rule { width: 0.9in; height: 4pt; border-radius: 2pt; background: linear-gradient(90deg, #7c3aed, #d946ef); margin: 30pt auto; }
+.titlepage .by { font-size: 14pt; letter-spacing: 0.28em; text-transform: uppercase; color: #2e1065; font-weight: 700; }
+.copyright { page: front; page-break-after: always; display: flex; flex-direction: column; justify-content: flex-end; min-height: 7.6in; font-size: 8.8pt; line-height: 1.55; color: #4a4268; }
+.copyright p { margin: 0 0 8pt; }
+.copyright strong { color: #2e1065; }
+html.kdp .part { background: #ffffff; }

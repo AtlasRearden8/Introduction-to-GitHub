@@ -23,7 +23,7 @@ def to_site_url(target: str) -> str:
 
 def main(out: Path) -> None:
     chaps = chapters()
-    toc = [f"# {TITLE} 🚀", "", "## Table of Contents", ""] + [f"- {c.h1}" for c in chaps]
+    toc = [f"# {TITLE}", "", "## Table of Contents", ""] + [f"- {c.h1}" for c in chaps]
     body: list[str] = []
     for c in chaps:
         text = re.sub(
