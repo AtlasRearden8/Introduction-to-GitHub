@@ -9,6 +9,7 @@ Writes to kdp/out/:
     cover-wrap-flattened.pdf        the same cover as one 300-dpi image, use it if KDP complains about transparency
     cover-template-guides.pdf/.png  your cover with the bleed, trim, safe, spine, and barcode guides drawn on
     cover-template-blank.pdf/.png   an empty template with the same guides, for designing a cover in another tool
+    book-info.md                    the listing sheet with the paperback author name filled in
     front-cover.png / .jpg          the front cover alone, for your book's Amazon page and for sharing
 
 The spine width depends on the page count, so build the interior first and pass its page count.
@@ -25,7 +26,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent / "scripts"))
 from build_pdf import font_css  # noqa: E402
-from guide import AUTHOR, BOOK_SUBTITLE, BOOK_TAGLINE, BOOK_TITLE, SITE  # noqa: E402
+from guide import BOOK_SUBTITLE, BOOK_TAGLINE, BOOK_TITLE, SITE, kdp_author  # noqa: E402
 
 # Inches of spine per page, as published by KDP (verify before uploading).
 SPINE_PER_PAGE = {
@@ -65,7 +66,7 @@ def cover_html(pages: int, trim_w: float, trim_h: float, spine: float, mode: str
 
     title = html.escape(BOOK_TITLE)
     sub = html.escape(BOOK_SUBTITLE)
-    author = html.escape(AUTHOR)
+    author = html.escape(kdp_author())
     bullets = "".join(f"<li>{html.escape(t)}</li>" for t in INSIDE)
 
     # The branching-lines illustration on the front cover. Lines and tiny commit marks, not dots.
@@ -303,6 +304,10 @@ def main() -> None:
     # A JPG of the front cover.
     pix = pymupdf.Pixmap(str(out / "front-cover.png"))
     pix.save(str(out / "front-cover.jpg"), jpg_quality=92)
+
+    # A copy of the listing sheet with the paperback author name filled in (this copy stays on your computer).
+    info = (HERE / "book-info.md").read_text(encoding="utf-8").replace("{{AUTHOR}}", kdp_author())
+    (out / "book-info.md").write_text(info, encoding="utf-8")
 
     print(f"Spine: {spine:.4f} in for {args.pages} pages ({args.paper} paper, {args.ink})")
     print(f"Full cover: {total_w:.4f} x {total_h:.4f} in  =  {round(total_w * 300)} x {round(total_h * 300)} px at 300 dpi")

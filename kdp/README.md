@@ -5,6 +5,7 @@ Everything you need to turn this guide into a paperback.
 | File | What it is |
 |------|------------|
 | `build_cover.py` | Builds the full-wrap cover (back, spine, front) and the guide templates |
+| `author.local` | **You create this.** One line: the author name printed on the paperback. Git ignores it, so the name never goes to GitHub |
 | `book-info.md` | Title, subtitle, description, keywords, categories, and a pre-publish checklist |
 | `out/` | The finished files (made by the scripts, not saved in git) |
 
@@ -18,10 +19,11 @@ Everything you need to turn this guide into a paperback.
 | `front-cover.jpg` and `.png` | Just the front cover, for your Amazon page, social posts, or a website |
 | `cover-template-guides.pdf` / `.png` | Your cover with bleed, trim, safe zone, spine fold lines, and barcode area drawn on |
 | `cover-template-blank.pdf` / `.png` | An empty template with the same guides, for designing a cover in another tool |
+| `book-info.md` | The listing sheet (title, description, keywords) with the paperback author name filled in |
 
 ## How to rebuild
 
-You'll need the tools in `requirements-pdf.txt` (Playwright and Chromium, plus PyMuPDF). In a terminal in this folder:
+First create `kdp/author.local` with the author name for the paperback. Then you'll need the tools in `requirements-pdf.txt` (Playwright and Chromium, plus PyMuPDF). In a terminal in this folder:
 
 ```
 pip install -r requirements-pdf.txt
@@ -68,4 +70,4 @@ The cover script needs the **page count of the finished interior**, because the 
 
 ## Changing the design
 
-The cover is plain HTML and CSS inside `build_cover.py` (look for `cover_html`). Edit it, rebuild, and look at `out/cover-wrap.pdf`. The book's title, subtitle, author, and tagline live in `scripts/guide.py`, so the cover, the title page, and the copyright page always agree.
+The cover is plain HTML and CSS inside `build_cover.py` (look for `cover_html`). Edit it, rebuild, and look at `out/cover-wrap.pdf`. The book's title, subtitle, and tagline live in `scripts/guide.py`, and the paperback author name lives in `kdp/author.local`, so the cover, the title page, and the copyright page always agree.

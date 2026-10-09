@@ -19,7 +19,7 @@ SUBTITLE = "A complete, friendly guide for absolute beginners"
 BOOK_TITLE = "GitHub for Complete Beginners"
 BOOK_SUBTITLE = "A Friendly, No-Command-Line Guide to Git, GitHub Desktop, Pull Requests, Websites, and Open Source"
 BOOK_TAGLINE = "32 chapters · 4 guided projects · a 30-day plan"
-AUTHOR = "Dylan Chase"
+AUTHOR = "Dylan Chase"  # the author shown on GitHub: the website, the README, and the PDF books
 YEAR = 2026
 SITE = "https://atlasrearden8.github.io/Introduction-to-GitHub/"
 CHAPTER_FILE = re.compile(r"^(\d{2})-.+\.md$")
@@ -116,3 +116,23 @@ def part_for(num: int):
         if part[0] <= num:
             current = part
     return current
+
+
+def kdp_author() -> str:
+    """The author name printed on the paperback (KDP) files.
+
+    It is kept out of the repository on purpose. Put the name in a one-line text file named kdp/author.local
+    (git ignores it), or set the KDP_AUTHOR environment variable.
+    """
+    import os
+
+    name = os.environ.get("KDP_AUTHOR", "").strip()
+    local = ROOT / "kdp" / "author.local"
+    if not name and local.exists():
+        name = local.read_text(encoding="utf-8").strip()
+    if not name:
+        raise SystemExit(
+            "Which author name should the paperback use? Put it in a one-line file named kdp/author.local "
+            "(git ignores that file), or set the KDP_AUTHOR environment variable."
+        )
+    return name

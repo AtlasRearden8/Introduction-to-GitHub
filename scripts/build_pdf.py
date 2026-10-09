@@ -25,7 +25,7 @@ import markdown
 
 sys.path.insert(0, str(Path(__file__).parent))
 from guide import (  # noqa: E402
-    AUTHOR, BOOK_SUBTITLE, BOOK_TAGLINE, BOOK_TITLE, PARTS, SITE, YEAR, chapters, part_for,
+    AUTHOR, BOOK_SUBTITLE, BOOK_TAGLINE, BOOK_TITLE, PARTS, SITE, YEAR, chapters, kdp_author, part_for,
 )
 
 FONT_DIR = Path(__file__).parent / "pdf" / "fonts"
@@ -134,20 +134,21 @@ def part_divider(part, index: int) -> str:
 
 
 def front_matter(kdp: bool) -> str:
+    author = html.escape(kdp_author() if kdp else AUTHOR)
     """The first pages: a designed cover for the screen editions, a plain title page and copyright page for KDP."""
     if not kdp:
         return (
             '<div class="cover"><div class="emojis">🌱 🛠️ 🤝 🧯 🚀</div><div class="kicker">A beginner\'s guide</div>'
             f"<h1>{html.escape(BOOK_TITLE)}</h1><p>{html.escape(BOOK_SUBTITLE)}.</p>"
-            f'<div class="by">by {html.escape(AUTHOR)}</div><small>{SITE}</small></div>'
+            f'<div class="by">by {author}</div><small>{SITE}</small></div>'
         )
     return (
         '<div class="titlepage"><div class="kicker">A beginner\'s guide</div>'
         f"<h1>{html.escape(BOOK_TITLE)}</h1><p class=\"sub\">{html.escape(BOOK_SUBTITLE)}</p>"
-        f'<div class="rule"></div><div class="by">{html.escape(AUTHOR)}</div></div>'
+        f'<div class="rule"></div><div class="by">{author}</div></div>'
         '<div class="copyright">'
         f"<p><strong>{html.escape(BOOK_TITLE)}</strong><br>{html.escape(BOOK_SUBTITLE)}</p>"
-        f"<p>Copyright © {YEAR} {html.escape(AUTHOR)}. All rights reserved.</p>"
+        f"<p>Copyright © {YEAR} {author}. All rights reserved.</p>"
         "<p>No part of this book may be reproduced, stored in a retrieval system, or transmitted in any form or by any "
         "means without the prior written permission of the author, except for brief quotations in a review.</p>"
         "<p>GitHub, GitHub Desktop, and the Octocat are trademarks of GitHub, Inc. Other product names are trademarks "

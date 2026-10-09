@@ -1,6 +1,6 @@
 # Book information for Amazon KDP
 
-Copy these into the "Paperback Details" page when you set up the book at <https://kdp.amazon.com>.
+The copy of this sheet in `kdp/out/book-info.md` has the author name filled in. Copy from it into the "Paperback Details" page when you set up the book at <https://kdp.amazon.com>.
 
 ## Title and subtitle
 
@@ -10,7 +10,7 @@ Copy these into the "Paperback Details" page when you set up the book at <https:
 | **Subtitle** | A Friendly, No-Command-Line Guide to Git, GitHub Desktop, Pull Requests, Websites, and Open Source |
 | **Series** | *(leave blank)* |
 | **Edition** | 1 |
-| **Author** | Dylan Chase |
+| **Author** | {{AUTHOR}} |
 | **Language** | English |
 
 The title and subtitle together are about 130 characters. KDP allows 200.
@@ -72,7 +72,7 @@ No coding experience needed. If you can use a web browser and click buttons, you
 
 ## Author bio (optional, goes on your Author Central page)
 
-*Write two or three sentences here, in your own words. For example: who you are, why you wrote this, and what you'd like readers to feel. Dylan Chase is a ...*
+*Write two or three sentences here, in your own words. For example: who you are, why you wrote this, and what you'd like readers to feel. {{AUTHOR}} is a ...*
 
 ## Keywords (KDP gives you seven boxes)
 
@@ -131,7 +131,7 @@ Check KDP's **print cost calculator** for your exact trim, ink, and page count, 
 - [ ] **Add real screenshots.** The online edition has dashed "Screenshot:" boxes where pictures should go. The print interior in `kdp/out` leaves those boxes out so nothing looks unfinished, but a beginner's book is far better with real screens. Capture GitHub Desktop and github.com on your own computer and add them. Then rebuild without `--no-placeholders`, or place the images into the chapters.
 - [ ] **Walk through the instructions yourself.** Every menu name and button label was written from the documentation and memory. GitHub changes its screens. Click through at least the chapters you want to be most proud of, and fix anything that doesn't match.
 - [ ] **Check the AI disclosure.** KDP asks, when you set up the book, whether any text, images, or translations were created with AI tools. This guide was drafted with an AI assistant (Claude) and directed and edited by you. KDP separates "AI-generated" content (which you must disclose) from "AI-assisted" content (which you don't need to). Read KDP's current definitions and answer honestly for how the book was actually made.
-- [ ] **Confirm the name you publish under.** The `LICENSE` file and the copyright page both name Dylan Chase as the author. Make sure that matches the name on your KDP account and tax information, or change it in `scripts/guide.py` and `LICENSE` before you publish.
+- [ ] **Confirm the name you publish under.** The paperback uses the name in `kdp/author.local`, which is not stored on GitHub. The website, PDFs, and `LICENSE` use the GitHub author name. Make sure the printed name matches your KDP account and tax information.
 - [ ] **Get an ISBN, or let KDP give you one.** KDP offers a free ISBN. If you use it, KDP is listed as the publisher. You can also buy your own.
 - [ ] **Order a proof copy** and read it on paper before you approve it for sale.
 - [ ] **Read the reviewer's view in KDP's online previewer** to check that the margins and the cover look right.
