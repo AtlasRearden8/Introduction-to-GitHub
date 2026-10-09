@@ -1,0 +1,61 @@
+name: Website
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements-pdf.txt
+      - name: Build the site (strict, so broken links fail the build)
+        run: mkdocs build --strict
+      - name: Build the all-in-one MANUAL.md download
+        run: python scripts/build_single_file.py site/MANUAL.md
+      - name: Set up the PDF toolchain (Chromium + emoji font)
+        run: |
+          python -m playwright install --with-deps chromium
+          sudo apt-get install -y fonts-noto-color-emoji
+      - name: Build the printable PDF book (US Letter)
+        run: python scripts/build_pdf.py --out site/MANUAL.pdf
+      - name: Build the printable PDF book (A4)
+        run: python scripts/build_pdf.py --paper a4 --out site/MANUAL-A4.pdf
+      - name: Attach the PDF to this run for review
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: MANUAL-pdf
+          path: site/MANUAL.pdf
+      - name: Package the site for GitHub Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
