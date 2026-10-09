@@ -1,10 +1,10 @@
 # Chapter 1: What Are Git and GitHub? 💡
 
-🎯 **Goals:** Understand the big ideas before touching any tools. This is the most important chapter, because once these ideas click, everything else is just details.
+🎯 **Goals:** Understand the big ideas before you touch any tools. This is the most important chapter. Once these ideas click, everything else is just details.
 
 ---
 
-## The problem Git solves
+## 🗂️ The problem Git solves
 
 Have you ever had files like this?
 
@@ -16,125 +16,109 @@ Essay_v2_FINAL_actually_final.docx
 Essay_v2_FINAL_actually_final_USE_THIS_ONE.docx
 ```
 
-That's a (very human) attempt at **version control**: keeping track of how your work changes over time.
+That's a very human attempt at **version control**: keeping track of how your work changes over time.
 
 Now imagine:
-- You want to go back to how things looked last Tuesday.
+
+- You want to see how things looked last Tuesday.
 - Five people are editing the same project at once.
 - You want to try a risky idea without wrecking your good version.
 
-Doing this with copies of files gets messy fast. **Git** solves all of it, cleanly.
+Doing all this with copies of files gets messy fast. **Git** solves it cleanly.
 
-## Git: your project's time machine ⏳
+## ⏳ Git: your project's time machine
 
-**Git** is a free program that runs on your computer. It watches a folder and lets you:
+**Git** is a free tool that watches a folder on your computer. It lets you:
 
-- **Save snapshots** of your project at moments you choose.
+- **Save snapshots** of your project whenever you choose.
 - **Look back** at every snapshot and see what changed, when, and why.
-- **Travel back** to any earlier snapshot.
-- **Branch off** to experiment, then merge good ideas back.
+- **Go back** to any earlier snapshot.
+- **Try things out** on the side, and keep only the ideas you like.
 
-Think of it like a video game's save system. You can save at any point, and if you make a mistake, you load an earlier save.
+Think of a video game's save system. You can save at any point, and if you make a mistake, you load an earlier save.
 
-Git was created in 2005 by Linus Torvalds (who also created Linux). It's now the most widely used version control system in the world.
+You will never type a Git command in this guide. **GitHub Desktop** (Chapter 2) does the Git work for you when you click its buttons.
 
-## GitHub: Git's home on the internet 🌐
+## 🌐 GitHub: Git's home on the internet
 
-**GitHub** is a *website* (and company) that stores Git projects online and adds tools for working with other people.
+**GitHub** is a *website* that stores your projects online and adds tools for working with other people.
 
 | | **Git** | **GitHub** |
 |---|---|---|
-| What is it? | A program on your computer | A website / online service |
+| What is it? | The tool that tracks changes | A website that stores projects online |
 | Needs internet? | No | Yes |
-| Main job | Track changes to files | Host projects, share, and collaborate |
-| Analogy | Microsoft Word's "track changes" engine | Google Docs-style sharing, comments, and teamwork on top |
+| Main job | Remember every version of your files | Share projects, discuss changes, and collaborate |
+| Everyday comparison | The "track changes" feature in a word processor | Shared documents with comments and teamwork on top |
 
-A common comparison: **Git is to GitHub as photography is to Instagram.** Git does the core job; GitHub is the place you share it and interact with others.
+A helpful comparison: **Git is to GitHub as photography is to Instagram.** Git does the core job. GitHub is where you share it and interact with others.
 
-> Other websites do a similar job (GitLab, Bitbucket). The Git skills you learn here work with all of them.
+**GitHub Desktop** is the free app that connects the two. It lives on your computer, uses Git to save your work, and sends it up to GitHub when you ask it to.
 
-## The vocabulary you need (just the essentials)
+## 📚 The vocabulary you need
 
-Don't memorize these. Just read them once. You'll meet each again with hands-on practice. A full list is in the [Glossary](13-glossary.md).
+Don't memorize these. Just read them once. You'll meet each one again with hands-on practice, and the [Glossary](28-glossary.md) lists them all.
 
-### Repository ("repo")
-A **project folder that Git is tracking**, including its full history. When someone says "check out my repo," they mean "look at my project."
+### 📁 Repository ("repo")
+A **project folder** that Git is tracking, including its full history. When someone says "check out my repo," they mean "look at my project."
 
-### Commit
+### 💾 Commit
 A **saved snapshot** of your project, with a short message describing what changed. Commits are the save points of your time machine. Example message: *"Add contact page"*.
 
-### Branch
-A **separate line of work**. The main line is usually called `main`. You can create a branch, make changes without affecting `main`, and later merge them in if you like the result. It's like writing in a copy of the document you can throw away.
+### 🌿 Branch
+A **separate line of work**. The main line is called `main`. You can create a branch, make changes without touching `main`, and bring them in later if you like the result. It's like working on a copy of a document that you can throw away.
 
-### Merge
+### 🔀 Merge
 **Combining** the changes from one branch into another.
 
-### Remote
-A copy of your repository **hosted somewhere else**, such as on GitHub. The standard nickname for your main remote is `origin`.
+### ☁️ Remote
+A copy of your repository **stored somewhere else**, such as on GitHub. GitHub Desktop calls your GitHub copy **origin**.
 
-### Clone
+### 📥 Clone
 **Downloading** a full copy of a GitHub repository onto your computer.
 
-### Push / Pull
-- **Push**: send your new commits from your computer **up** to GitHub.
-- **Pull**: bring new commits from GitHub **down** to your computer.
+### 🔄 Push and Pull
+- **Push** means sending your new commits **up** from your computer to GitHub.
+- **Pull** means bringing new commits **down** from GitHub to your computer.
 
-### Pull Request ("PR")
-A **proposal** to merge your branch into another. It opens a discussion page where people can review, comment, and approve. It's the signature feature of GitHub.
+### 📬 Pull request ("PR")
+A **proposal** to merge your branch into another. It opens a page where people can review, comment, and approve. It is GitHub's signature feature.
 
-### Issue
-A **note or task** attached to a repo: a bug report, a feature idea, a question, a to-do.
+### 📝 Issue
+A **note or task** attached to a project: a bug report, an idea, a question, a to-do.
 
-### Fork
-Your **own personal copy** of someone else's repository on GitHub. This lets you experiment freely and then propose your changes back to them.
+### 🍴 Fork
+**Your own personal copy** of someone else's repository on GitHub. It lets you experiment freely and then suggest your changes back to the original owner.
 
-## How it all fits together
+## 🧭 How it all fits together
 
 ```
         YOUR COMPUTER                              GITHUB (online)
    ┌────────────────────┐                    ┌────────────────────┐
    │  Your files        │                    │  Your repository   │
-   │  + Git history     │  ── push ───────►  │  (the remote)      │
-   │  (local repo)      │  ◄─────── pull ──  │                    │
+   │  + their history   │  ── Push ───────►  │  (the remote)      │
+   │  (GitHub Desktop)  │  ◄─────── Pull ──  │                    │
    └────────────────────┘                    └─────────┬──────────┘
                                                        │
                                         Issues • Pull requests • Collaborators
                                         Pages • Actions • Discussions
 ```
 
-And the loop you'll repeat every day looks like this:
+The loop you'll repeat every time you work looks like this:
 
 ```
-  edit files  ──►  stage changes  ──►  commit (save a snapshot)  ──►  push to GitHub
+  Edit your files  ──►  Commit (save a snapshot)  ──►  Push to GitHub
 ```
 
 That's the core of it. Everything else is built on top.
 
-## The three "places" your changes live
-
-This one idea clears up most beginner confusion. On your computer, Git has three areas:
-
-```
- ┌──────────────────┐   git add   ┌──────────────────┐  git commit  ┌──────────────────┐
- │ WORKING FOLDER   │ ──────────► │  STAGING AREA    │ ───────────► │  REPOSITORY      │
- │ (files you edit) │             │ (a "loading dock"│              │ (permanent       │
- │                  │             │  for your next   │              │  history of      │
- │                  │             │  snapshot)       │              │  commits)        │
- └──────────────────┘             └──────────────────┘              └──────────────────┘
-```
-
-Analogy: you're taking a group photo. The **working folder** is everyone milling around. The **staging area** is the people you've told to line up. The **commit** is the photo being taken.
-
-Why have a staging area at all? It lets you choose *exactly* which changes go into each snapshot, which keeps your history tidy.
-
-## Why bother? Real reasons people love it
+## 🌟 Why bother?
 
 - **Safety:** nothing you've committed is truly lost.
 - **Clarity:** you can see who changed what, and why.
 - **Freedom to experiment:** branches make risky ideas cheap.
 - **Teamwork:** many people can work on one project without overwriting each other.
 - **Portfolio:** your GitHub profile becomes a living showcase of your work.
-- **Not just for code!** People use GitHub for books, recipes, research, legal documents, design files, course notes, and more. Anything that's mostly text works especially well.
+- **Not just for code.** People use GitHub for books, recipes, research, legal documents, course notes, and more. Anything that's mostly text works especially well.
 
 ## ✅ Checkpoint
 
@@ -149,4 +133,4 @@ If you can give a rough answer to each, you're ready. Rough is fine. You'll lock
 
 ---
 
-⬅️ Previous: [Chapter 0](00-start-here.md) · ➡️ Next: **[Chapter 2: Create Your Account & Get Set Up](02-account-and-setup.md)**
+Previous: [Chapter 0](00-start-here.md) · Next: **[Chapter 2: Create Your Account & Get Set Up](02-account-and-setup.md)**

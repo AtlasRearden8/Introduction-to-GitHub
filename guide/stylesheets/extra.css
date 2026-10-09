@@ -1,38 +1,89 @@
-/* Introduction to GitHub · friendly teal → blue → violet, readable in light and dark */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap");
+
+/* Introduction to GitHub: black and purple, with a light mode that keeps the same accent */
 :root {
-  --md-primary-fg-color: #0f766e;
-  --md-primary-fg-color--light: #14b8a6;
-  --md-primary-fg-color--dark: #134e4a;
+  --md-primary-fg-color: #6d28d9;
+  --md-primary-fg-color--light: #8b5cf6;
+  --md-primary-fg-color--dark: #4c1d95;
   --md-primary-bg-color: #ffffff;
   --md-accent-fg-color: #7c3aed;
-  --itg-grad: linear-gradient(120deg, #0f766e 0%, #2563eb 55%, #7c3aed 100%);
-  --itg-radius: 0.9rem;
+  --md-typeset-a-color: #6d28d9;
+  --itg-radius: 0.8rem;
+  --itg-glow: radial-gradient(120% 140% at 100% 0%, #6d28d9 0%, #2e1065 45%, #0a0612 100%);
 }
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color: #5eead4;
+  --md-hue: 265;
+  --md-default-bg-color: #0b0712;
+  --md-default-bg-color--light: #130d1f;
+  --md-default-bg-color--lighter: #1b1330;
+  --md-default-bg-color--lightest: #241a40;
+  --md-default-fg-color: #e9e4f5;
+  --md-default-fg-color--light: #b9afd3;
+  --md-default-fg-color--lighter: #6d6290;
+  --md-default-fg-color--lightest: #2a2142;
+  --md-primary-fg-color: #16102a;
   --md-accent-fg-color: #c4b5fd;
-  --md-typeset-a-color: #7dd3fc;
-  --itg-grad: linear-gradient(120deg, #134e4a 0%, #1e3a8a 55%, #4c1d95 100%);
+  --md-typeset-a-color: #c4b5fd;
+  --md-code-bg-color: #150e26;
+  --md-code-fg-color: #efe9ff;
+  --md-footer-bg-color: #07040d;
+  --md-footer-bg-color--dark: #07040d;
 }
-.md-header { background: var(--itg-grad); color: #fff; box-shadow: 0 6px 24px -12px rgba(30, 58, 138, 0.55); }
+body { font-feature-settings: "ss01"; }
+.md-typeset h1, .md-typeset h2, .md-typeset h3 { font-family: "Fraunces", Georgia, serif; letter-spacing: -0.015em; }
+.md-typeset h1 { font-weight: 800; color: var(--md-default-fg-color); }
+[data-md-color-scheme="slate"] .md-typeset h1 { color: #ffffff; }
+[data-md-color-scheme="slate"] .md-typeset h2 { color: #ffffff; }
+.md-typeset h2 { font-weight: 800; margin-top: 2.2em; padding-bottom: 0.3em; border-bottom: 1px solid var(--md-default-fg-color--lightest); }
+.md-typeset h3 { font-weight: 700; color: var(--md-accent-fg-color); }
+.md-header { box-shadow: 0 1px 0 var(--md-default-fg-color--lightest); }
+[data-md-color-scheme="slate"] .md-header { background: #0b0712; }
+[data-md-color-scheme="slate"] .md-tabs { background: #0b0712; }
 .md-search__form { border-radius: 999px; }
-.md-typeset h1 { font-weight: 800; letter-spacing: -0.02em; }
-.md-typeset h2 { font-weight: 700; margin-top: 2.2em; }
-.md-typeset table:not([class]) { border-radius: var(--itg-radius); overflow: hidden; }
+.md-nav__item--section > .md-nav__link { font-weight: 800; letter-spacing: 0.02em; }
+.md-typeset table:not([class]) { border-radius: var(--itg-radius); overflow: hidden; border: 1px solid var(--md-default-fg-color--lightest); font-size: 0.74rem; }
+.md-typeset table:not([class]) th { background: linear-gradient(135deg, #4c1d95, #7c3aed 60%, #a855f7); color: #fff; font-weight: 700; }
+.md-typeset table:not([class]) td:first-child { font-weight: 600; }
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tbody tr:nth-child(even) { background: rgba(167, 139, 250, 0.05); }
 .md-typeset blockquote {
-  border-left: 0.3rem solid var(--md-accent-fg-color);
-  background: color-mix(in srgb, var(--md-accent-fg-color) 8%, transparent);
+  border-left: 0.25rem solid var(--md-accent-fg-color);
+  background: color-mix(in srgb, var(--md-accent-fg-color) 9%, transparent);
   border-radius: 0 var(--itg-radius) var(--itg-radius) 0;
-  padding: 0.4rem 1rem;
+  padding: 0.5rem 1rem;
   color: inherit;
 }
 .md-typeset pre > code { border-radius: var(--itg-radius); }
-.md-typeset .md-button { border-radius: 999px; font-weight: 600; }
-.md-typeset .md-button--primary { background: var(--itg-grad); border: 0; color: #fff; }
+.md-typeset code { border-radius: 0.3rem; }
+.md-typeset .md-button { border-radius: 999px; font-weight: 700; }
+.md-typeset .md-button--primary { background: linear-gradient(135deg, #6d28d9, #a855f7); border: 0; color: #fff; }
+.md-typeset .md-button:hover { box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.35); }
+.md-typeset details { border-radius: var(--itg-radius); }
+
+/* placeholder for a screenshot that hasn't been added yet */
+.md-typeset p.shot {
+  border: 2px dashed var(--md-default-fg-color--lighter);
+  border-radius: var(--itg-radius);
+  padding: 1.6rem 1rem;
+  text-align: center;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset p.shot::before { content: "📷"; display: block; font-size: 1.4rem; margin-bottom: 0.2rem; }
+.md-typeset p.shot strong:first-child {
+  display: block; font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.3rem;
+}
 
 /* landing page */
-.hero { text-align: center; padding: 2.5rem 1rem; border-radius: 1.4rem; background: var(--itg-grad); color: #fff; margin-bottom: 2rem; }
+.hero {
+  text-align: center; padding: 3rem 1.2rem; border-radius: 1.4rem; color: #fff; margin-bottom: 2rem;
+  background: var(--itg-glow); border: 1px solid #3b2c66; position: relative; overflow: hidden;
+}
 .hero h1, .hero p { color: #fff; margin: 0.3rem 0; }
-.hero .md-button { margin: 0.8rem 0.3rem 0; background: #fff; color: #134e4a; border: 0; }
+.hero h1 { font-size: clamp(1.7rem, 7vw, 2.6rem); overflow-wrap: normal; word-break: normal; hyphens: none; line-height: 1.1; }
+.hero .md-button { margin: 0.8rem 0.3rem 0; background: #fff; color: #3b0764; border: 0; }
+.hero .md-button:hover { background: #f3e8ff; color: #3b0764; }
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-.cards > div { border: 1px solid var(--md-default-fg-color--lightest); border-radius: var(--itg-radius); padding: 0.2rem 1rem; }
+.cards > div {
+  border: 1px solid var(--md-default-fg-color--lightest); border-radius: var(--itg-radius); padding: 0.2rem 1rem;
+  background: var(--md-default-bg-color--light);
+}
+.cards > div:hover { border-color: var(--md-accent-fg-color); }
