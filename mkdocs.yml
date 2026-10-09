@@ -13,19 +13,12 @@ theme:
   language: en
   favicon: assets/favicon.svg
   font:
-    text: Inter
+    text: Plus Jakarta Sans
     code: JetBrains Mono
   icon:
     logo: material/source-branch
     repo: fontawesome/brands/github
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: custom
-      accent: custom
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: custom
@@ -33,6 +26,13 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
   features:
     - content.code.copy
     - navigation.instant
@@ -71,20 +71,38 @@ nav:
   - "🌱 Start Here":
       - "0 · Start Here": 00-start-here.md
       - "1 · What Are Git and GitHub?": 01-what-are-git-and-github.md
-      - "2 · Account & Setup": 02-account-and-setup.md
+      - "2 · Create Your Account & Get Set Up": 02-account-and-setup.md
   - "🛠️ The Basics":
       - "3 · Your First Repository": 03-first-repository.md
-      - "4 · Git on Your Computer": 04-git-basics.md
-      - "5 · Clone, Push & Pull": 05-remotes-clone-push-pull.md
+      - "4 · Markdown: Write Like a Pro": 04-markdown.md
+      - "5 · GitHub Desktop on Your Computer": 05-github-desktop.md
+      - "6 · Connecting Your Computer to GitHub": 06-clone-push-pull.md
   - "🤝 Working Together":
-      - "6 · Branches & Merging": 06-branches-and-merging.md
-      - "7 · Pull Requests": 07-pull-requests.md
-      - "8 · Issues & Projects": 08-issues-and-projects.md
-      - "9 · Collaboration & Open Source": 09-collaboration-and-open-source.md
+      - "7 · Branches & Merging": 07-branches-and-merging.md
+      - "8 · Pull Requests": 08-pull-requests.md
+      - "9 · Issues & Project Boards": 09-issues-and-projects.md
+      - "10 · Collaborating & Open Source": 10-collaboration-and-open-source.md
+      - "11 · Reviews, Feedback & Teamwork": 11-reviews-and-teamwork.md
   - "🧯 Mastery":
-      - "10 · Undoing Mistakes": 10-undoing-mistakes.md
-      - "11 · Level-Ups": 11-level-ups.md
+      - "12 · Undoing Mistakes": 12-undoing-mistakes.md
+      - "13 · GitHub Pages: Build a Website": 13-github-pages.md
+      - "14 · Your Profile & Portfolio": 14-profile-and-portfolio.md
+      - "15 · Automation with GitHub Actions": 15-github-actions.md
+      - "16 · Security & Privacy": 16-security-and-privacy.md
+      - "17 · Using AI With GitHub": 17-ai-and-github.md
+      - "18 · More Level-Ups": 18-more-level-ups.md
+  - "🚀 Real Projects":
+      - "19 · Project 1: Your Personal Website": 19-project-personal-website.md
+      - "20 · Project 2: A Team Project": 20-project-team.md
+      - "21 · Project 3: Write a Book or Documentation": 21-project-book-or-docs.md
+      - "22 · Project 4: Your First Open-Source Contribution": 22-project-open-source.md
+      - "23 · GitHub for Writers, Designers, Students & Researchers": 23-github-for-everyone.md
+      - "24 · The 30-Day Practice Plan": 24-30-day-plan.md
   - "📎 Reference":
-      - "12 · Cheat Sheet": 12-cheat-sheet.md
-      - "13 · Glossary": 13-glossary.md
-      - "14 · Troubleshooting & FAQ": 14-troubleshooting-faq.md
+      - "25 · GitHub Desktop Menu Tour": 25-desktop-menu-tour.md
+      - "26 · Cheat Sheet": 26-cheat-sheet.md
+      - "27 · Templates & Snippets": 27-templates-and-snippets.md
+      - "28 · Glossary": 28-glossary.md
+      - "29 · Troubleshooting & FAQ": 29-troubleshooting-faq.md
+      - "30 · Quizzes & Answers": 30-quizzes.md
+      - "31 · Resources & Where to Go Next": 31-resources.md

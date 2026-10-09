@@ -1,43 +1,43 @@
-# Chapter 8: Issues & Project Boards 📋
+# Chapter 9: Issues & Project Boards 📋
 
 🎯 **Goals:** Use issues to track tasks, bugs, and ideas, then organize them with labels, milestones, and a project board.
 
 ---
 
-## What is an issue?
+## 📋 What is an issue?
 
 An **issue** is a trackable note attached to a repository. It can be:
 
-- 🐛 A **bug** ("The button doesn't work on phones")
-- ✨ A **feature idea** ("Add a dark mode")
-- ❓ A **question** ("How do I install this?")
-- ✅ A simple **to-do** ("Write chapter 3")
+- A **bug** ("The button doesn't work on phones")
+- A **feature idea** ("Add a dark mode")
+- A **question** ("How do I install this?")
+- A simple **to-do** ("Write chapter 3")
 
 Every issue gets a number (`#1`, `#2`, …), a discussion thread, and an open/closed status. Think of it as a shared to-do list with a conversation attached to each item.
 
 Issues work in your private practice repos too, and they're a great personal task manager.
 
-## Create your first issue
+## 🆕 Create your first issue
 
 1. Open your repo → **Issues** tab → **New issue**.
 2. **Title:** specific and short, such as `Add three more books to reading list`.
 3. **Description:** write in Markdown. Be clear about what's wanted:
 
-   ```markdown
-   ## Goal
-   Grow the reading list so it has at least 5 books.
+    ```markdown
+    ## Goal
+    Grow the reading list so it has at least 5 books.
 
-   ## Tasks
-   - [ ] Add a fiction book
-   - [ ] Add a non-fiction book
-   - [ ] Add a book a friend recommended
-   ```
+    ## Tasks
+    - [ ] Add a fiction book
+    - [ ] Add a non-fiction book
+    - [ ] Add a book a friend recommended
+    ```
 
 4. Click **Submit new issue**.
 
 The task list renders as checkboxes. Tick them off as you go, and GitHub shows progress (like "1 of 3") in issue lists.
 
-## Writing a good bug report
+## 🐛 Writing a good bug report
 
 When *reporting a problem* (to yourself or to others), include:
 
@@ -57,27 +57,27 @@ Example:
 
 Great bug reports get fixed faster.
 
-## Superpowers inside issues
+## ⚡ Superpowers inside issues
 
-### Mentions: `@username`
+### 📣 Mentions: `@username`
 Type `@` followed by a name to notify a person.
 
-### References: `#number`
+### 🔗 References: `#number`
 Typing `#7` in any comment creates a clickable link to issue or PR #7, and leaves a trail in #7 showing where it was mentioned.
 
-### Assignees
+### 👤 Assignees
 Click the gear next to **Assignees** to say who's responsible. You can assign yourself.
 
-### Labels 🏷️
+### 🏷️ Labels
 Color-coded tags such as `bug`, `enhancement`, `documentation`, `good first issue`, `help wanted`. GitHub gives you defaults, and you can create your own under the **Labels** page.
 
-### Milestones 🎯
+### 🎯 Milestones
 A group of issues with a shared goal and optional due date, like "Version 1.0" or "Launch week." The milestone page shows a progress bar.
 
-### Closing issues
-Click **Close issue** manually, or let a pull request do it by writing `Closes #7` in its description (Chapter 7). Closed isn't deleted; you can reopen it any time.
+### ✅ Closing issues
+Click **Close issue** manually, or let a pull request do it by writing `Closes #7` in its description (Chapter 8). Closed isn't deleted; you can reopen it any time.
 
-## Searching and filtering
+## 🔎 Searching and filtering
 
 Above the issue list is a search box with handy filters:
 
@@ -91,11 +91,11 @@ Above the issue list is a search box with handy filters:
 
 Combine them: `is:open label:bug assignee:@me`.
 
-## Issue templates
+## 🧾 Issue templates
 
 For repos where others report issues, **templates** pre-fill a helpful structure (like the bug-report format above). Find them under **Settings → General → Features → Issues → Set up templates**. Optional for now, but a nice touch for your own projects.
 
-## Project boards 🗂️
+## 🗂️ Project boards
 
 **GitHub Projects** give you a visual way to organize issues, like sticky notes on a wall.
 
@@ -111,7 +111,7 @@ Tips:
 
 You can plan an entire personal project, a class assignment, or a team sprint this way.
 
-## Discussions (a gentle mention)
+## 💬 Discussions (a gentle mention)
 
 Some repos enable **Discussions**, a forum-like space for open-ended conversation, Q&A, and announcements that don't fit as tasks. Turn it on in **Settings → General → Features → Discussions** if your project grows a community.
 
@@ -137,4 +137,4 @@ Some repos enable **Discussions**, a forum-like space for open-ended conversatio
 
 ---
 
-⬅️ Previous: [Chapter 7](07-pull-requests.md) · ➡️ Next: **[Chapter 9: Collaborating & Open Source](09-collaboration-and-open-source.md)**
+Previous: [Chapter 8](08-pull-requests.md) · Next: **[Chapter 10: Collaborating & Open Source](10-collaboration-and-open-source.md)**
