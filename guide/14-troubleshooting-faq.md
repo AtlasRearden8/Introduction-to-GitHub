@@ -139,7 +139,7 @@ Not at all. People store writing, research, designs, documentation, data, recipe
 
 ---
 
-⬅️ Previous: [Chapter 13](13-glossary.md) · 🏠 [Back to the start](../README.md)
+⬅️ Previous: [Chapter 13](13-glossary.md) · 🏠 [Back to the start](index.md)
 
 ## 🎉 You made it!
 

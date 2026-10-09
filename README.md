@@ -6,6 +6,12 @@ You don't need to know how to code. You don't need to know what "Git" means. You
 
 Everybody who uses GitHub today started exactly where you are now. The confusing words (commit! branch! merge!) turn out to be simple ideas wearing fancy names, and this guide translates every one of them.
 
+> 📖 **Read it as a website:** [axmann8.github.io/Introduction-to-GitHub](https://axmann8.github.io/Introduction-to-GitHub/) (searchable, dark mode)
+>
+> 📄 **Download the printable PDF book:** [US Letter](https://axmann8.github.io/Introduction-to-GitHub/MANUAL.pdf) · [A4](https://axmann8.github.io/Introduction-to-GitHub/MANUAL-A4.pdf) · or the one-file [`MANUAL.md`](https://axmann8.github.io/Introduction-to-GitHub/MANUAL.md)
+>
+> Or just keep reading right here on GitHub. Every chapter is in [`guide/`](guide/).
+
 ---
 
 ## How to use this guide

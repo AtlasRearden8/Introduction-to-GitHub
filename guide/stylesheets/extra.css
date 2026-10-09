@@ -1,0 +1,38 @@
+/* Introduction to GitHub · friendly teal → blue → violet, readable in light and dark */
+:root {
+  --md-primary-fg-color: #0f766e;
+  --md-primary-fg-color--light: #14b8a6;
+  --md-primary-fg-color--dark: #134e4a;
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: #7c3aed;
+  --itg-grad: linear-gradient(120deg, #0f766e 0%, #2563eb 55%, #7c3aed 100%);
+  --itg-radius: 0.9rem;
+}
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #5eead4;
+  --md-accent-fg-color: #c4b5fd;
+  --md-typeset-a-color: #7dd3fc;
+  --itg-grad: linear-gradient(120deg, #134e4a 0%, #1e3a8a 55%, #4c1d95 100%);
+}
+.md-header { background: var(--itg-grad); color: #fff; box-shadow: 0 6px 24px -12px rgba(30, 58, 138, 0.55); }
+.md-search__form { border-radius: 999px; }
+.md-typeset h1 { font-weight: 800; letter-spacing: -0.02em; }
+.md-typeset h2 { font-weight: 700; margin-top: 2.2em; }
+.md-typeset table:not([class]) { border-radius: var(--itg-radius); overflow: hidden; }
+.md-typeset blockquote {
+  border-left: 0.3rem solid var(--md-accent-fg-color);
+  background: color-mix(in srgb, var(--md-accent-fg-color) 8%, transparent);
+  border-radius: 0 var(--itg-radius) var(--itg-radius) 0;
+  padding: 0.4rem 1rem;
+  color: inherit;
+}
+.md-typeset pre > code { border-radius: var(--itg-radius); }
+.md-typeset .md-button { border-radius: 999px; font-weight: 600; }
+.md-typeset .md-button--primary { background: var(--itg-grad); border: 0; color: #fff; }
+
+/* landing page */
+.hero { text-align: center; padding: 2.5rem 1rem; border-radius: 1.4rem; background: var(--itg-grad); color: #fff; margin-bottom: 2rem; }
+.hero h1, .hero p { color: #fff; margin: 0.3rem 0; }
+.hero .md-button { margin: 0.8rem 0.3rem 0; background: #fff; color: #134e4a; border: 0; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.cards > div { border: 1px solid var(--md-default-fg-color--lightest); border-radius: var(--itg-radius); padding: 0.2rem 1rem; }

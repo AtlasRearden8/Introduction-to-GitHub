@@ -1,0 +1,90 @@
+site_name: Introduction to GitHub
+site_description: >-
+  A complete, friendly guide to Git and GitHub for absolute beginners, starting from
+  square one: accounts, commits, branches, pull requests, issues and open source.
+site_url: https://axmann8.github.io/Introduction-to-GitHub/
+repo_url: https://github.com/Axmann8/Introduction-to-GitHub
+repo_name: Axmann8/Introduction-to-GitHub
+docs_dir: guide
+copyright: Made with ❤️ and Claude Code · Now go build something fun ✨
+
+theme:
+  name: material
+  language: en
+  favicon: assets/favicon.svg
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    logo: material/source-branch
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - content.code.copy
+    - navigation.instant
+    - navigation.tracking
+    - navigation.footer
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - toc.follow
+
+validation:
+  anchors: warn
+  unrecognized_links: warn
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - sane_lists
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+
+nav:
+  - "🏠 Home": index.md
+  - "📄 Download the PDF": download.md
+  - "🌱 Start Here":
+      - "0 · Start Here": 00-start-here.md
+      - "1 · What Are Git and GitHub?": 01-what-are-git-and-github.md
+      - "2 · Account & Setup": 02-account-and-setup.md
+  - "🛠️ The Basics":
+      - "3 · Your First Repository": 03-first-repository.md
+      - "4 · Git on Your Computer": 04-git-basics.md
+      - "5 · Clone, Push & Pull": 05-remotes-clone-push-pull.md
+  - "🤝 Working Together":
+      - "6 · Branches & Merging": 06-branches-and-merging.md
+      - "7 · Pull Requests": 07-pull-requests.md
+      - "8 · Issues & Projects": 08-issues-and-projects.md
+      - "9 · Collaboration & Open Source": 09-collaboration-and-open-source.md
+  - "🧯 Mastery":
+      - "10 · Undoing Mistakes": 10-undoing-mistakes.md
+      - "11 · Level-Ups": 11-level-ups.md
+  - "📎 Reference":
+      - "12 · Cheat Sheet": 12-cheat-sheet.md
+      - "13 · Glossary": 13-glossary.md
+      - "14 · Troubleshooting & FAQ": 14-troubleshooting-faq.md
